@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Générateur de QR Code Statiques - Gratuit & Sans Redirection</title>
     <link rel="icon" type="image/png" href="/logo.png">
-    <!-- Scripts CDN -->
     <script src="cdn.js"></script>
     <script type="text/javascript" src="qr-code-styling.js"></script>
-    <!-- Bibliothèque de conversion SVG vers Image haute performance -->
     <script src="html-to-image.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -90,8 +88,6 @@
 </head>
 
 <body class="text-slate-800">
-
-    <!-- OVERLAY DE CHARGEMENT -->
     <div id="loading-overlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex flex-col items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none">
         <div class="bg-white p-6 rounded-2xl shadow-2xl flex flex-col items-center gap-4">
             <div class="w-12 h-12 border-4 border-slate-200 border-t-[#145814] rounded-full animate-spin-custom"></div>
@@ -100,7 +96,6 @@
     </div>
 
     <div class="min-h-screen flex flex-col">
-        <!-- HEADER -->
         <header class="bg-white border-b border-slate-200 py-4 px-6 sticky top-0 z-20">
             <div class="max-w-6xl mx-auto flex justify-between items-center">
                 <a href="#" onclick="showPage('home')"
@@ -122,13 +117,9 @@
                 </a>
             </div>
         </header>
-
-        <!-- PAGE PRINCIPALE : GÉNÉRATEUR -->
         <main id="page-home" class="page active flex-grow max-w-6xl mx-auto w-full p-4 md:p-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
-                <div class="lg:col-span-7 space-y-6">
-                    <!-- SECTION CONTENU AVEC ONGLETS -->
+                    <div class="lg:col-span-7 space-y-6">
                     <section class="bg-white rounded-2xl border border-slate-200 custom-shadow text-left overflow-hidden">
                         <div class="flex border-b border-slate-100">
                             <button onclick="switchTab('url')" id="tab-url" class="flex-1 py-4 text-sm font-semibold flex items-center justify-center gap-2 tab-active transition-colors hover:bg-slate-50">
@@ -146,22 +137,17 @@
                         </div>
 
                         <div class="p-6">
-                            <!-- CHAMP URL -->
                             <div id="input-url" class="tab-content">
                                 <label class="block text-sm font-medium text-slate-600 mb-2">Lien de destination</label>
                                 <input type="text" id="qr-data-url" placeholder="https://votre-site.com"
                                     class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-[#145814] outline-none transition-all"
                                     value="https://qr-code.gervo.fr">
                             </div>
-
-                            <!-- CHAMP TEXTE -->
                             <div id="input-text" class="tab-content hidden">
                                 <label class="block text-sm font-medium text-slate-600 mb-2">Votre texte libre</label>
                                 <textarea id="qr-data-text" rows="3" placeholder="Saisissez votre texte ici..."
                                     class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-[#145814] outline-none transition-all"></textarea>
                             </div>
-
-                            <!-- CHAMP VCARD -->
                             <div id="input-vcard" class="tab-content hidden space-y-4">
                                 <div class="grid grid-cols-2 gap-4">
                                     <div>
@@ -193,8 +179,6 @@
                             </div>
                         </div>
                     </section>
-
-                    <!-- APPARENCE -->
                     <section class="bg-white p-6 rounded-2xl border border-slate-200 custom-shadow text-left">
                         <h2 class="text-lg font-semibold mb-4">Apparence</h2>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -219,8 +203,6 @@
                             </div>
                         </div>
                     </section>
-
-                    <!-- COULEURS -->
                     <section class="bg-white p-6 rounded-2xl border border-slate-200 custom-shadow text-left">
                         <h2 class="text-lg font-semibold mb-4">Couleurs</h2>
                         <div class="space-y-4">
@@ -240,8 +222,6 @@
                             </div>
                         </div>
                     </section>
-
-                    <!-- LOGO -->
                     <section class="bg-white p-6 rounded-2xl border border-slate-200 custom-shadow text-left">
                         <div class="flex items-center justify-between mb-4">
                             <h2 class="text-lg font-semibold">Logo central</h2>
@@ -258,8 +238,6 @@
                         </label>
                     </section>
                 </div>
-
-                <!-- COLONNE APERÇU -->
                 <div class="lg:col-span-5">
                     <div class="sticky top-24 space-y-6">
                         <div class="bg-white p-8 rounded-2xl border border-slate-200 custom-shadow text-center">
@@ -267,7 +245,6 @@
 
                             <div id="canvas-container"
                                 class="preview-container bg-slate-50 rounded-xl overflow-hidden mb-6 border border-slate-100 p-4">
-                                <!-- Le QR Code SVG sera injecté ici -->
                             </div>
 
                             <div class="bg-green-50 border border-green-100 rounded-xl p-4 mb-6 text-left">
@@ -411,17 +388,11 @@
     </div>
 
     <script>
-        // État global
         let currentTab = 'url';
         let currentLogo = "";
-        
-        // Éléments UI
         const overlay = document.getElementById('loading-overlay');
         const container = document.getElementById("canvas-container");
-        
-        // Taille de prévisualisation
         const PREVIEW_SIZE = 300;
-        // Taille d'exportation
         const EXPORT_SIZE = 1000;
 
         const qrCode = new QRCodeStyling({
@@ -446,15 +417,11 @@
         window.onload = () => {
             qrCode.append(container);
         };
-
-        // Navigation
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             document.getElementById('page-' + pageId).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        // Onglets
         function switchTab(type) {
             currentTab = type;
             document.querySelectorAll('[id^="tab-"]').forEach(btn => {
@@ -530,8 +497,6 @@
             document.getElementById("clear-logo").classList.add("hidden");
             updateQRCode();
         });
-
-        // Gestion de l'affichage de l'overlay
         function toggleLoading(show) {
             if (show) {
                 overlay.classList.remove('pointer-events-none');
@@ -541,21 +506,13 @@
                 overlay.classList.remove('opacity-100');
             }
         }
-
-        /**
-         * Fonction d'exportation PNG avec indicateur de chargement
-         */
         const exportCleanPNG = async () => {
             toggleLoading(true);
-
-            // 1. Passage en SVG haute définition
             await qrCode.update({ 
                 width: EXPORT_SIZE, 
                 height: EXPORT_SIZE, 
                 type: "svg" 
             });
-
-            // On attend la stabilisation du tracé
             setTimeout(async () => {
                 const svgElement = container.querySelector("svg");
                 if (!svgElement) {
@@ -564,7 +521,6 @@
                 }
 
                 try {
-                    // 2. Capture ultra-nette
                     const dataUrl = await htmlToImage.toPng(svgElement, {
                         backgroundColor: document.getElementById("bg-color").value,
                         width: EXPORT_SIZE,
@@ -578,8 +534,6 @@
                             padding: '0'
                         }
                     });
-
-                    // 3. Lien de téléchargement
                     const downloadLink = document.createElement("a");
                     downloadLink.href = dataUrl;
                     downloadLink.download = "qr-ultra-net.png";
@@ -589,7 +543,6 @@
                 } catch (error) {
                     console.error("Erreur lors de l'export PNG:", error);
                 } finally {
-                    // 4. Retour prévisualisation et fermeture overlay
                     await qrCode.update({ 
                         width: PREVIEW_SIZE, 
                         height: PREVIEW_SIZE, 
