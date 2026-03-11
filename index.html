@@ -563,6 +563,13 @@
             imageOptions: { crossOrigin: "anonymous", margin: 5, imageSize: 0.4 }
         });
         window.onload = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const externalUrl = urlParams.get('url');
+            if (externalUrl) {
+                document.getElementById("qr-data-url").value = externalUrl;
+                const newUrl = window.location.pathname;
+                window.history.replaceState({}, document.title, newUrl);
+            }
             qrCodeStyled.append(styledWrapper);
             updateSliderVisuals();
             updateQRCode();
