@@ -1,6 +1,6 @@
 [![Translation status](https://vianneypacaud.fr/img/VIANNEYPACAUDBANIERE.svg)](https://vianneypacaud.fr/)
 
-# Générateur de QR Code
+# Gervo QR Code
 
 Ce dépôt contient le code source d'une application web interactive permettant de générer et de personnaliser des QR Codes en haute résolution. L'application est accessible via [**qr-code.gervo.fr**](https://qr-code.gervo.fr).
 
