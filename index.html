@@ -35,6 +35,7 @@
             align-items: center;
             width: 100%;
         }
+
         #canvas-container canvas,
         #canvas-container svg,
         #styled-qr-wrapper canvas,
@@ -62,10 +63,12 @@
             border: 2px solid #e2e8f0;
             border-radius: 50%;
         }
+
         input[type=range] {
-            -webkit-appearance: none; 
-            background: transparent; 
+            -webkit-appearance: none;
+            background: transparent;
         }
+
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
             height: 16px;
@@ -74,10 +77,11 @@
             background: #145814;
             cursor: pointer;
             margin-top: -6px;
-            box-shadow: 0 0 0 2px white, 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 0 0 2px white, 0 2px 4px rgba(0, 0, 0, 0.1);
             position: relative;
             z-index: 20;
         }
+
         input[type=range]::-webkit-slider-runnable-track {
             width: 100%;
             height: 4px;
@@ -85,8 +89,9 @@
             background: transparent;
             border-radius: 2px;
         }
+
         input[type=range]:focus {
-            outline: none; 
+            outline: none;
         }
 
         .page {
@@ -101,22 +106,29 @@
             border-bottom: 2px solid #145814;
             color: #145814;
         }
-        
+
         .tab-content.hidden {
             display: none;
         }
+
         .hidden-force {
             display: none !important;
         }
+
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
+
         .animate-spin-custom {
             animation: spin 1s linear infinite;
         }
+
         .dropdown-menu {
             display: none;
         }
+
         .dropdown-menu.show {
             display: block;
         }
@@ -124,7 +136,8 @@
 </head>
 
 <body class="text-slate-800" onclick="closeDropdowns(event)">
-    <div id="loading-overlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex flex-col items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none">
+    <div id="loading-overlay"
+        class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex flex-col items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none">
         <div class="bg-white p-6 rounded-2xl shadow-2xl flex flex-col items-center gap-4">
             <div class="w-12 h-12 border-4 border-slate-200 border-t-[#145814] rounded-full animate-spin-custom"></div>
             <p class="text-sm font-bold text-slate-700">Génération en cours...</p>
@@ -148,7 +161,8 @@
                     </div>
                     <div>
                         <h1 class="text-xl font-bold tracking-tight leading-none">Qr-code Gervo</h1>
-                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold mt-1">Gratuit à vie • Qr-code statique • Open Source</p>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold mt-1">Gratuit à vie
+                            • Qr-code statique • Open Source</p>
                     </div>
                 </a>
             </div>
@@ -159,28 +173,54 @@
                 <div class="lg:col-span-7 space-y-6">
                     <section class="bg-white rounded-2xl border border-slate-200 custom-shadow text-left">
                         <div class="flex border-b border-slate-100 relative">
-                            <button onclick="switchTab('url')" id="tab-url" class="flex-1 py-4 text-sm font-semibold flex items-center justify-center gap-2 tab-active transition-colors hover:bg-slate-50">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                            <button onclick="switchTab('url')" id="tab-url"
+                                class="flex-1 py-4 text-sm font-semibold flex items-center justify-center gap-2 tab-active transition-colors hover:bg-slate-50">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1">
+                                    </path>
+                                </svg>
                                 URL
                             </button>
-                            
-                            <button onclick="switchTab('vcard')" id="tab-vcard" class="flex-1 py-4 text-sm font-semibold flex items-center justify-center gap-2 text-slate-500 transition-colors hover:bg-slate-50">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
+
+                            <button onclick="switchTab('vcard')" id="tab-vcard"
+                                class="flex-1 py-4 text-sm font-semibold flex items-center justify-center gap-2 text-slate-500 transition-colors hover:bg-slate-50">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2">
+                                    </path>
+                                </svg>
                                 vCard
                             </button>
                             <div class="relative flex-1">
-                                <button onclick="toggleDropdown(event)" id="tab-plus" class="w-full h-full py-4 text-sm font-semibold flex items-center justify-center gap-2 text-slate-500 transition-colors hover:bg-slate-50">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                                <button onclick="toggleDropdown(event)" id="tab-plus"
+                                    class="w-full h-full py-4 text-sm font-semibold flex items-center justify-center gap-2 text-slate-500 transition-colors hover:bg-slate-50">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                    </svg>
                                     Plus
-                                    <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
+                                    </svg>
                                 </button>
-                                <div id="plus-dropdown" class="dropdown-menu absolute top-full right-0 w-full min-w-[150px] bg-white border border-slate-200 shadow-xl rounded-b-xl z-50 overflow-hidden">
-                                    <button onclick="switchTab('text')" class="w-full text-left px-4 py-3 text-sm hover:bg-slate-50 hover:text-[#145814] transition-colors border-b border-slate-50 flex items-center gap-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7"></path></svg>
+                                <div id="plus-dropdown"
+                                    class="dropdown-menu absolute top-full right-0 w-full min-w-[150px] bg-white border border-slate-200 shadow-xl rounded-b-xl z-50 overflow-hidden">
+                                    <button onclick="switchTab('text')"
+                                        class="w-full text-left px-4 py-3 text-sm hover:bg-slate-50 hover:text-[#145814] transition-colors border-b border-slate-50 flex items-center gap-2">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path d="M4 6h16M4 12h16M4 18h7"></path>
+                                        </svg>
                                         Texte
                                     </button>
-                                    <button onclick="switchTab('wifi')" class="w-full text-left px-4 py-3 text-sm hover:bg-slate-50 hover:text-[#145814] transition-colors flex items-center gap-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path></svg>
+                                    <button onclick="switchTab('wifi')"
+                                        class="w-full text-left px-4 py-3 text-sm hover:bg-slate-50 hover:text-[#145814] transition-colors flex items-center gap-2">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0">
+                                            </path>
+                                        </svg>
                                         Wifi
                                     </button>
                                 </div>
@@ -196,47 +236,63 @@
                             </div>
                             <div id="input-text" class="tab-content hidden">
                                 <label class="block text-sm font-medium text-slate-600 mb-2">Votre texte libre</label>
-                                <textarea id="qr-data-text" rows="3" placeholder="Saisissez votre texte ici (accents supportés)..."
+                                <textarea id="qr-data-text" rows="3"
+                                    placeholder="Saisissez votre texte ici (accents supportés)..."
                                     class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-[#145814] outline-none transition-all"></textarea>
                             </div>
                             <div id="input-vcard" class="tab-content hidden space-y-4">
                                 <div class="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Prénom</label>
-                                        <input type="text" id="vc-first" placeholder="Jean" class="vc-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none">
+                                        <label
+                                            class="block text-xs font-bold text-slate-400 uppercase mb-1">Prénom</label>
+                                        <input type="text" id="vc-first" placeholder="Jean"
+                                            class="vc-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Nom</label>
-                                        <input type="text" id="vc-last" placeholder="Dupont" class="vc-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none">
+                                        <input type="text" id="vc-last" placeholder="Dupont"
+                                            class="vc-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none">
                                     </div>
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Téléphone</label>
-                                    <input type="tel" id="vc-tel" placeholder="06 12 34 56 78" class="vc-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none">
+                                    <label
+                                        class="block text-xs font-bold text-slate-400 uppercase mb-1">Téléphone</label>
+                                    <input type="tel" id="vc-tel" placeholder="06 12 34 56 78"
+                                        class="vc-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Email</label>
-                                    <input type="email" id="vc-email" placeholder="jean@exemple.fr" class="vc-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none">
+                                    <input type="email" id="vc-email" placeholder="jean@exemple.fr"
+                                        class="vc-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Entreprise</label>
-                                    <input type="text" id="vc-org" placeholder="Ma Société" class="vc-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none">
+                                    <label
+                                        class="block text-xs font-bold text-slate-400 uppercase mb-1">Entreprise</label>
+                                    <input type="text" id="vc-org" placeholder="Ma Société"
+                                        class="vc-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none">
                                 </div>
                             </div>
                             <div id="input-wifi" class="tab-content hidden space-y-4">
                                 <div>
-                                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Nom du réseau (SSID)</label>
-                                    <input type="text" id="wifi-ssid" placeholder="MaBoxInternet" class="wifi-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none">
+                                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Nom du réseau
+                                        (SSID)</label>
+                                    <input type="text" id="wifi-ssid" placeholder="MaBoxInternet"
+                                        class="wifi-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Mot de passe</label>
-                                    <input type="text" id="wifi-pass" placeholder="Clé de sécurité" class="wifi-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none">
-                                    <p class="text-[10px] text-orange-500 mt-1 font-medium">Attention aux Majuscules et minuscules !</p>
+                                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Mot de
+                                        passe</label>
+                                    <input type="text" id="wifi-pass" placeholder="Clé de sécurité"
+                                        class="wifi-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none">
+                                    <p class="text-[10px] text-orange-500 mt-1 font-medium">Attention aux Majuscules et
+                                        minuscules !</p>
                                 </div>
                                 <div class="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Sécurité</label>
-                                        <select id="wifi-type" class="wifi-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none bg-white">
+                                        <label
+                                            class="block text-xs font-bold text-slate-400 uppercase mb-1">Sécurité</label>
+                                        <select id="wifi-type"
+                                            class="wifi-input w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:border-[#145814] outline-none bg-white">
                                             <option value="WPA">WPA/WPA2</option>
                                             <option value="WEP">WEP</option>
                                             <option value="nopass">Aucune</option>
@@ -244,14 +300,20 @@
                                     </div>
                                     <div class="flex items-end pb-2">
                                         <label class="flex items-center gap-2 cursor-pointer">
-                                            <input type="checkbox" id="wifi-hidden" class="wifi-input w-4 h-4 text-[#145814] rounded focus:ring-[#145814]">
+                                            <input type="checkbox" id="wifi-hidden"
+                                                class="wifi-input w-4 h-4 text-[#145814] rounded focus:ring-[#145814]">
                                             <span class="text-sm text-slate-600">Réseau masqué</span>
                                         </label>
                                     </div>
                                 </div>
                                 <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 flex gap-2 items-start">
-                                    <svg class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    <p class="text-xs text-blue-800">Scannez ce code pour vous connecter automatiquement.</p>
+                                    <svg class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <p class="text-xs text-blue-800">Scannez ce code pour vous connecter
+                                        automatiquement.</p>
                                 </div>
                                 <div class="text-[10px] text-slate-400 font-mono break-all p-2 bg-slate-100 rounded">
                                     Chaîne générée: <span id="wifi-debug"></span>
@@ -259,12 +321,18 @@
                             </div>
 
                             <div class="mt-4 flex items-center gap-2 text-slate-400">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                                <p class="text-[11px] italic">Génération 100% locale : vos données ne quittent jamais votre navigateur.</p>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                    </path>
+                                </svg>
+                                <p class="text-[11px] italic">Génération 100% locale : vos données ne quittent jamais
+                                    votre navigateur.</p>
                             </div>
                         </div>
                     </section>
-                    <section id="appearance-section" class="bg-white p-6 rounded-2xl border border-slate-200 custom-shadow text-left">
+                    <section id="appearance-section"
+                        class="bg-white p-6 rounded-2xl border border-slate-200 custom-shadow text-left">
                         <h2 class="text-lg font-semibold mb-4">Apparence</h2>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
@@ -291,31 +359,44 @@
                             <div class="flex items-center gap-2 mb-3">
                                 <label class="block text-sm font-medium text-slate-600">Niveau de correction</label>
                                 <div class="group relative flex items-center justify-center">
-                                    <div class="w-4 h-4 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center text-[10px] font-bold cursor-help transition-colors hover:bg-[#145814] hover:text-white">?</div>
-                                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-slate-800 text-white text-[11px] leading-relaxed rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-xl z-10 text-left pointer-events-none transform translate-y-1 group-hover:translate-y-0">
-                                        <p class="mb-1">Définit la capacité du QR Code à être lu s'il est endommagé ou masqué (par un logo).</p>
+                                    <div
+                                        class="w-4 h-4 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center text-[10px] font-bold cursor-help transition-colors hover:bg-[#145814] hover:text-white">
+                                        ?</div>
+                                    <div
+                                        class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-slate-800 text-white text-[11px] leading-relaxed rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-xl z-10 text-left pointer-events-none transform translate-y-1 group-hover:translate-y-0">
+                                        <p class="mb-1">Définit la capacité du QR Code à être lu s'il est endommagé ou
+                                            masqué (par un logo).</p>
                                         <ul class="list-disc pl-3 text-slate-300 space-y-0.5">
-                                            <li><strong class="text-white">L (Low) :</strong> Simple, peu de points.</li>
-                                            <li><strong class="text-white">H (High) :</strong> Complexe, idéal si vous ajoutez un Logo au centre.</li>
+                                            <li><strong class="text-white">L (Low) :</strong> Simple, peu de points.
+                                            </li>
+                                            <li><strong class="text-white">H (High) :</strong> Complexe, idéal si vous
+                                                ajoutez un Logo au centre.</li>
                                         </ul>
-                                        <div class="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-800"></div>
+                                        <div
+                                            class="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-800">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
                                 <div class="flex items-center justify-between mb-3 px-1">
                                     <span class="text-xs font-semibold text-slate-400">Simple (L)</span>
-                                    <span id="correction-value-display" class="text-xs font-bold text-[#145814] bg-green-100 px-2 py-0.5 rounded border border-green-200">H (High)</span>
+                                    <span id="correction-value-display"
+                                        class="text-xs font-bold text-[#145814] bg-green-100 px-2 py-0.5 rounded border border-green-200">H
+                                        (High)</span>
                                     <span class="text-xs font-semibold text-slate-400">Complexe (H)</span>
                                 </div>
                                 <div class="relative w-full h-6 flex items-center">
-                                    <input type="range" id="correction-level" min="0" max="3" value="3" step="1" 
+                                    <input type="range" id="correction-level" min="0" max="3" value="3" step="1"
                                         class="absolute z-10 w-full h-2 opacity-0 cursor-pointer">
                                     <div class="absolute w-full h-1 bg-slate-200 rounded-full overflow-hidden">
-                                        <div id="slider-fill" class="h-full bg-[#145814] transition-all duration-150" style="width: 100%;"></div>
+                                        <div id="slider-fill" class="h-full bg-[#145814] transition-all duration-150"
+                                            style="width: 100%;"></div>
                                     </div>
-                                    <div id="slider-thumb" class="absolute h-4 w-4 bg-white border-2 border-[#145814] rounded-full shadow transition-all duration-150 pointer-events-none" style="left: 100%; transform: translateX(-50%);"></div>
+                                    <div id="slider-thumb"
+                                        class="absolute h-4 w-4 bg-white border-2 border-[#145814] rounded-full shadow transition-all duration-150 pointer-events-none"
+                                        style="left: 100%; transform: translateX(-50%);"></div>
                                 </div>
                                 <div class="flex justify-between mt-1 px-[7px]">
                                     <div class="w-0.5 h-1.5 bg-slate-300 rounded-full"></div>
@@ -364,24 +445,32 @@
                 <div class="lg:col-span-5">
                     <div class="sticky top-24 space-y-6">
                         <div class="bg-white p-8 rounded-2xl border border-slate-200 custom-shadow text-center">
-                            <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-6">Aperçu du Code</h3>
+                            <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-6">Aperçu du
+                                Code</h3>
 
                             <div id="canvas-container"
                                 class="preview-container bg-slate-50 rounded-xl overflow-hidden mb-6 border border-slate-100 p-4">
-                                
+
                                 <div id="styled-qr-wrapper" class="w-full flex justify-center"></div>
                                 <canvas id="wifi-canvas" class="hidden-force"></canvas>
-                                
+
                             </div>
 
                             <div class="bg-green-50 border border-green-100 rounded-xl p-4 mb-6 text-left">
                                 <div class="flex gap-3 items-start">
                                     <div class="mt-0.5 p-1 bg-green-600 rounded-full">
-                                        <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                        <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                                d="M5 13l4 4L19 7"></path>
+                                        </svg>
                                     </div>
                                     <div>
-                                        <p class="text-xs font-bold text-green-800 uppercase tracking-tight">QR Code Permanent</p>
-                                        <p class="text-[11px] text-green-700 leading-snug mt-0.5">Ce code n'expirera <b>jamais</b>. Il ne contient pas de lien intermédiaire, il est encodé directement.</p>
+                                        <p class="text-xs font-bold text-green-800 uppercase tracking-tight">QR Code
+                                            Permanent</p>
+                                        <p class="text-[11px] text-green-700 leading-snug mt-0.5">Ce code n'expirera
+                                            <b>jamais</b>. Il ne contient pas de lien intermédiaire, il est encodé
+                                            directement.</p>
                                     </div>
                                 </div>
                             </div>
@@ -398,7 +487,7 @@
                                     </svg>
                                     Exporter en PNG
                                 </button>
-                                
+
                                 <button id="download-svg"
                                     class="w-full py-3 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold rounded-xl transition-all flex items-center justify-center gap-2 transform active:scale-95">
                                     Télécharger en SVG (Vectoriel)
@@ -412,25 +501,44 @@
                 <h3 class="text-xl font-bold mb-8 text-center">Un outil honnête pour vos QR Codes</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="p-6 bg-white rounded-2xl border border-slate-200 text-left">
-                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <div
+                            class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
                         </div>
                         <p class="font-bold text-slate-800 mb-2 text-sm">Zéro redirection</p>
-                        <p class="text-slate-500 text-xs leading-relaxed">Votre QR code contient directement la donnée. Il restera lisible à vie sans serveur intermédiaire.</p>
+                        <p class="text-slate-500 text-xs leading-relaxed">Votre QR code contient directement la donnée.
+                            Il restera lisible à vie sans serveur intermédiaire.</p>
                     </div>
                     <div class="p-6 bg-white rounded-2xl border border-slate-200 text-left">
-                        <div class="w-10 h-10 bg-green-50 text-green-600 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        <div
+                            class="w-10 h-10 bg-green-50 text-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                </path>
+                            </svg>
                         </div>
                         <p class="font-bold text-slate-800 mb-2 text-sm">Garantie 100% Gratuit</p>
-                        <p class="text-slate-500 text-xs leading-relaxed">Pas d'abonnement caché ni de période d'essai. L'outil est mis à disposition gratuitement.</p>
+                        <p class="text-slate-500 text-xs leading-relaxed">Pas d'abonnement caché ni de période d'essai.
+                            L'outil est mis à disposition gratuitement.</p>
                     </div>
                     <div class="p-6 bg-white rounded-2xl border border-slate-200 text-left">
-                        <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                        <div
+                            class="w-10 h-10 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                                </path>
+                            </svg>
                         </div>
                         <p class="font-bold text-slate-800 mb-2 text-sm">Respect de la vie privée</p>
-                        <p class="text-slate-500 text-xs leading-relaxed">Aucun tracking. Aucune donnée n'est stockée sur un serveur tiers lors de la création.</p>
+                        <p class="text-slate-500 text-xs leading-relaxed">Aucun tracking. Aucune donnée n'est stockée
+                            sur un serveur tiers lors de la création.</p>
                     </div>
                 </div>
             </section>
@@ -480,8 +588,12 @@
                         <h3 class="text-xl font-semibold mb-3 text-slate-700">5. Crédits & Technologies</h3>
                         <p class="text-slate-600 leading-relaxed text-sm">
                             Ce site utilise les technologies open-source suivantes :<br>
-                            - <strong>Génération QR :</strong> <a href="https://github.com/kozakdenys/qr-code-styling" target="_blank" class="text-[#145814] hover:underline">qr-code-styling</a> (Design) et <a href="https://github.com/soldair/node-qrcode" target="_blank" class="text-[#145814] hover:underline">node-qrcode</a> (WiFi).<br>
-                            - <strong>Export :</strong> <a href="https://github.com/bubkoo/html-to-image" target="_blank" class="text-[#145814] hover:underline">html-to-image</a>.<br>
+                            - <strong>Génération QR :</strong> <a href="https://github.com/kozakdenys/qr-code-styling"
+                                target="_blank" class="text-[#145814] hover:underline">qr-code-styling</a> (Design) et
+                            <a href="https://github.com/soldair/node-qrcode" target="_blank"
+                                class="text-[#145814] hover:underline">node-qrcode</a> (WiFi).<br>
+                            - <strong>Export :</strong> <a href="https://github.com/bubkoo/html-to-image"
+                                target="_blank" class="text-[#145814] hover:underline">html-to-image</a>.<br>
                             - <strong>Interface :</strong> Tailwind CSS.<br>
                             - <strong>Icônes :</strong> Heroicons (SVG).
                         </p>
@@ -567,9 +679,34 @@
             const externalUrl = urlParams.get('url');
             if (externalUrl) {
                 document.getElementById("qr-data-url").value = externalUrl;
+                switchTab('url');
+            }
+            const externalText = urlParams.get('text');
+            if (externalText) {
+                document.getElementById("qr-data-text").value = externalText;
+                switchTab('text');
+            }
+            const externalSsid = urlParams.get('ssid');
+            if (externalSsid) {
+                document.getElementById("wifi-ssid").value = externalSsid;
+                if (urlParams.get('pass')) document.getElementById("wifi-pass").value = urlParams.get('pass');
+                if (urlParams.get('type')) document.getElementById("wifi-type").value = urlParams.get('type');
+                if (urlParams.get('hidden') === 'true') document.getElementById("wifi-hidden").checked = true;
+                switchTab('wifi');
+            }
+            if (urlParams.get('first') || urlParams.get('last')) {
+                if (urlParams.get('first')) document.getElementById("vc-first").value = urlParams.get('first');
+                if (urlParams.get('last')) document.getElementById("vc-last").value = urlParams.get('last');
+                if (urlParams.get('tel')) document.getElementById("vc-tel").value = urlParams.get('tel');
+                if (urlParams.get('email')) document.getElementById("vc-email").value = urlParams.get('email');
+                if (urlParams.get('org')) document.getElementById("vc-org").value = urlParams.get('org');
+                switchTab('vcard');
+            }
+            if ([...urlParams.keys()].length > 0) {
                 const newUrl = window.location.pathname;
                 window.history.replaceState({}, document.title, newUrl);
             }
+
             qrCodeStyled.append(styledWrapper);
             updateSliderVisuals();
             updateQRCode();
@@ -630,7 +767,7 @@
                 btnSvg.classList.remove('opacity-50', 'cursor-not-allowed');
                 btnSvg.innerText = "Télécharger en SVG (Vectoriel)";
             }
-            
+
             updateQRCode();
         }
         function generateVCardString() {
@@ -639,8 +776,8 @@
             const tel = document.getElementById('vc-tel').value || "";
             const email = document.getElementById('vc-email').value || "";
             const org = document.getElementById('vc-org').value || "";
-            
-            if(!firstName && !lastName) return "vCard";
+
+            if (!firstName && !lastName) return "vCard";
             let vcard = `BEGIN:VCARD\nVERSION:3.0\n`;
             vcard += `N:${lastName};${firstName};;;\n`;
             vcard += `FN:${firstName} ${lastName}\n`;
@@ -655,29 +792,29 @@
             const pass = document.getElementById('wifi-pass').value || "";
             const type = document.getElementById('wifi-type').value || "WPA";
             const hidden = document.getElementById('wifi-hidden').checked;
-            
+
             if (!ssid) return "WIFI:S:;T:nopass;;";
 
             const escapeWifi = (str) => {
                 if (!str) return "";
                 return str.replace(/\\/g, "\\\\")
-                          .replace(/;/g, "\\;")
-                          .replace(/:/g, "\\:")
-                          .replace(/,/g, "\\,")
-                          .replace(/"/g, "\\\"");
+                    .replace(/;/g, "\\;")
+                    .replace(/:/g, "\\:")
+                    .replace(/,/g, "\\,")
+                    .replace(/"/g, "\\\"");
             };
 
             let wifiString = `WIFI:S:${escapeWifi(ssid)};T:${type};`;
             if (type !== 'nopass') wifiString += `P:${escapeWifi(pass)};`;
             wifiString += `H:${hidden ? 'true' : 'false'};;`;
-            
+
             return wifiString;
         }
         function updateSliderVisuals() {
             const val = parseInt(correctionInput.value);
             const max = parseInt(correctionInput.max);
             const percentage = (val / max) * 100;
-            
+
             sliderFill.style.width = percentage + "%";
             sliderThumb.style.left = percentage + "%";
         }
@@ -690,7 +827,7 @@
             updateSliderVisuals();
             if (currentTab === 'wifi') {
                 const dataValue = generateWifiString();
-                if(wifiDebug) wifiDebug.innerText = dataValue;
+                if (wifiDebug) wifiDebug.innerText = dataValue;
 
                 try {
                     await QRCode.toCanvas(wifiCanvas, dataValue, {
@@ -755,7 +892,7 @@
         // Écouteurs d'événements
         const commonInputs = ["dot-style", "corner-style", "dot-color", "bg-color", "correction-level"];
         commonInputs.forEach(id => document.getElementById(id).addEventListener("input", () => updateQRCode()));
-        
+
         document.getElementById("qr-data-url").addEventListener("input", () => updateQRCode());
         document.getElementById("qr-data-text").addEventListener("input", () => updateQRCode());
         document.querySelectorAll('.vc-input').forEach(input => input.addEventListener("input", () => updateQRCode()));
@@ -803,9 +940,9 @@
                 if (currentTab === 'wifi') {
                     const currentWidth = wifiCanvas.width;
                     const currentHeight = wifiCanvas.height;
-                    
+
                     try {
-                         await QRCode.toCanvas(wifiCanvas, generateWifiString(), {
+                        await QRCode.toCanvas(wifiCanvas, generateWifiString(), {
                             width: EXPORT_SIZE,
                             margin: 2,
                             errorCorrectionLevel: 'H',
@@ -825,7 +962,7 @@
                         document.body.appendChild(link);
                         link.click();
                         document.body.removeChild(link);
-                        
+
                     } finally {
                         updateQRCode();
                         toggleLoading(false);
@@ -841,9 +978,9 @@
                                     backgroundColor: document.getElementById("bg-color").value,
                                     width: EXPORT_SIZE,
                                     height: EXPORT_SIZE,
-                                    style: { width: EXPORT_SIZE+'px', height: EXPORT_SIZE+'px' }
+                                    style: { width: EXPORT_SIZE + 'px', height: EXPORT_SIZE + 'px' }
                                 });
-                                
+
                                 const link = document.createElement("a");
                                 link.href = dataUrl;
                                 link.download = "qr-styled-hd.png";
@@ -854,7 +991,7 @@
                             await qrCodeStyled.update({ width: PREVIEW_SIZE, height: PREVIEW_SIZE });
                             toggleLoading(false);
                         }, 100);
-                        
+
                     } catch (e) {
                         console.error(e);
                         toggleLoading(false);
@@ -864,7 +1001,7 @@
         };
         document.getElementById("download-svg").addEventListener("click", async () => {
             if (currentTab === 'wifi') return;
-            
+
             toggleLoading(true);
             await qrCodeStyled.update({ width: EXPORT_SIZE, height: EXPORT_SIZE });
             await qrCodeStyled.download({ name: "qr-vector-export", extension: "svg" });
